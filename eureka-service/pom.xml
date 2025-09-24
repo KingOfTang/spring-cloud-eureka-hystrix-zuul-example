@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
@@ -37,8 +37,23 @@
 		</dependency>
 	</dependencies>
 
+	<!--
+		依赖管理配置块，用于统一管理项目中使用的Spring Cloud相关依赖的版本信息
+		通过dependencyManagement来控制依赖版本，确保项目中所有模块使用一致的Spring Cloud版本
+	-->
 	<dependencyManagement>
+		<!--
+			依赖列表，包含所有需要进行版本管理的依赖项
+		-->
 		<dependencies>
+			<!--
+				Spring Cloud依赖配置项
+				groupId: 组织标识，Spring Cloud的官方groupId为org.springframework.cloud
+				artifactId: 项目标识，spring-cloud-dependencies是Spring Cloud的依赖管理POM
+				version: 版本号，使用Dalston.RELEASE版本
+				type: 依赖类型，设置为pom表示这是一个Maven聚合POM
+				scope: 依赖作用域，设置为import表示将此POM中的依赖管理配置导入到当前项目中
+			-->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -48,6 +63,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 
 	<build>
 		<plugins>
