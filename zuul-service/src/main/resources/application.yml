@@ -31,3 +31,12 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+
+# --- 添加以下配置 ---
+management:
+  endpoints:
+    web:
+      exposure:
+        # 使用 '*' 暴露所有 Actuator 端点，便于学习和调试
+        # 在生产环境中，建议只暴露必要的端点，如 'health,info,routes'
+        include: '*'
