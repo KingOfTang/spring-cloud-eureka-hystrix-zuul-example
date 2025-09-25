@@ -16,10 +16,10 @@ public class HelloResource {
     private RestTemplate restTemplate;
 
 
-    @HystrixCommand(fallbackMethod = "fallback", groupKey = "Hello",
-            commandKey = "hello",
-            threadPoolKey = "helloThread"
-            )
+//    @HystrixCommand(fallbackMethod = "fallback", groupKey = "Hello",
+//            commandKey = "hello",
+//            threadPoolKey = "helloThread"
+//            )
     @GetMapping
     public String hello() {
         String url = "http://hello-server/rest/hello/server";
