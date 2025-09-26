@@ -70,6 +70,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Spring Boot Actuator依赖，用于监控和管理应用程序 -->
+		<!-- 提供生产就绪的功能，如健康检查、指标收集、环境信息等 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<!-- 依赖管理配置，用于统一管理Spring Cloud相关依赖的版本 -->
