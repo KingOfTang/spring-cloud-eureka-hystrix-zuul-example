@@ -5,11 +5,26 @@ spring:
 server:
   port: 8071
 
+# Eureka客户端配置
+# 用于配置微服务注册与发现客户端的相关参数
 eureka:
+  # 客户端配置项
+  # 包含服务注册、服务发现等核心功能配置
   client:
+    # 是否将当前服务注册到Eureka服务器
+    # true: 注册服务，false: 不注册服务
     registerWithEureka: true
+    # 是否从Eureka服务器获取服务注册表信息
+    # true: 获取注册表，false: 不获取注册表
     fetchRegistry: true
+    # Eureka服务器的服务地址配置
     serviceUrl:
+      # 默认的服务注册中心地址
+      # 所有Eureka客户端将向此地址注册和发现服务
       defaultZone: http://localhost:8070/eureka/
+  # 实例配置项
+  # 包含当前服务实例的元数据配置
   instance:
+    # 当前服务实例的主机名
+    # 用于服务注册时标识服务实例的网络位置
     hostname: localhost

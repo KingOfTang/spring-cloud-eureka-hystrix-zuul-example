@@ -26,24 +26,34 @@
 
 	<dependencies>
 		<dependency>
+			<!-- Spring Cloud Eureka客户端的组织标识 -->
 			<groupId>org.springframework.cloud</groupId>
+			<!-- Spring Cloud Eureka客户端的启动器依赖，用于服务注册与发现 -->
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 
 		<dependency>
+			<!-- Spring Cloud Hystrix的组织标识 -->
 			<groupId>org.springframework.cloud</groupId>
+			<!-- Spring Cloud Hystrix的启动器依赖，用于实现熔断器模式 -->
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
 
 		<dependency>
+			<!-- Spring Boot测试框架的组织标识 -->
 			<groupId>org.springframework.boot</groupId>
+			<!-- Spring Boot测试框架的启动器依赖，用于单元测试和集成测试 -->
 			<artifactId>spring-boot-starter-test</artifactId>
+			<!-- 依赖作用域为test，仅在测试时使用 -->
 			<scope>test</scope>
 		</dependency>
         <dependency>
+            <!-- Spring Cloud Commons的组织标识 -->
             <groupId>org.springframework.cloud</groupId>
+            <!-- Spring Cloud Commons依赖，提供通用的Spring Cloud功能 -->
             <artifactId>spring-cloud-commons</artifactId>
         </dependency>
+
     </dependencies>
 
 	<dependencyManagement>

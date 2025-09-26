@@ -1,36 +1,56 @@
+# Zuul网关配置
+# 配置Zuul网关的基本属性和路由规则
 zuul:
-  #Service will be mapped under the /api URI
+  # 设置所有路由的前缀路径
   prefix: /api
+  # 定义路由映射规则
   routes:
+    # 路由名称为hello-server的配置
     hello-server:
+      # 匹配路径模式，所有以/server/开头的请求都会被路由
       path: /server/**
+      # 直接指定目标服务的URL地址
       url: http://localhost:8071
+    # 路由名称为hello-client的配置
     hello-client:
+      # 匹配路径模式，所有以/client/开头的请求都会被路由
       path: /client/**
+      # 指定目标服务在Eureka中的服务ID
       serviceId: HELLO-CLIENT
 
+# Eureka客户端配置
+# 配置服务注册与发现相关参数
 eureka:
   client:
     serviceUrl:
+      # Eureka服务端的注册地址
       defaultZone: http://localhost:8070/eureka/
   instance:
+    # 配置当前服务实例的主机名
     hostname: localhost
 
+# 服务器配置
 server:
+  # 设置服务启动端口号
   port: 8079
 
+# Spring应用配置
 spring:
   application:
+    # 设置当前应用的服务名称
     name: zuul-service
 
-# Increase the Hystrix timeout to 60s (for all)
+# Hystrix熔断器配置
+# 配置服务熔断和超时相关参数
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
+            # 设置Hystrix命令执行的超时时间，单位为毫秒
             timeoutInMilliseconds: 60000
+
 
 # --- 添加以下配置 ---
 management:

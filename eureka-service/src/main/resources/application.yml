@@ -1,7 +1,17 @@
 
+# Eureka客户端配置
+# 配置Eureka客户端的基本行为，包括注册、发现和服务端相关设置
 eureka:
   client:
+    # 是否将当前实例注册到Eureka服务器
+    # false表示不注册，通常用于纯客户端或测试环境
     registerWithEureka: false
+
+    # 是否从Eureka服务器获取注册信息
+    # false表示不获取注册表，通常用于不依赖服务发现的场景
     fetchRegistry: false
+
     server:
+      # 当同步注册表为空时的等待时间(毫秒)
+      # 0表示不等待，立即返回
       waitTimeInMsWhenSyncEmpty: 0

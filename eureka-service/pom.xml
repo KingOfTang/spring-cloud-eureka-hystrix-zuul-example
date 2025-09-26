@@ -12,11 +12,16 @@
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
+		<!-- Spring Boot父项目的组织标识 -->
 		<groupId>org.springframework.boot</groupId>
+		<!-- Spring Boot父项目的项目标识，提供默认配置和依赖管理 -->
 		<artifactId>spring-boot-starter-parent</artifactId>
+		<!-- Spring Boot父项目的版本号 -->
 		<version>1.5.3.RELEASE</version>
+		<!-- 相对路径，空值表示Maven会自动从仓库查找父项目 -->
 		<relativePath/>
 	</parent>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,9 +31,12 @@
 
 	<dependencies>
 		<dependency>
+			<!-- Spring Cloud Eureka服务器的组织标识 -->
 			<groupId>org.springframework.cloud</groupId>
+			<!-- Spring Cloud Eureka服务器的启动器依赖，用于构建Eureka服务注册中心 -->
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,21 +54,19 @@
 			依赖列表，包含所有需要进行版本管理的依赖项
 		-->
 		<dependencies>
-			<!--
-				Spring Cloud依赖配置项
-				groupId: 组织标识，Spring Cloud的官方groupId为org.springframework.cloud
-				artifactId: 项目标识，spring-cloud-dependencies是Spring Cloud的依赖管理POM
-				version: 版本号，使用Dalston.RELEASE版本
-				type: 依赖类型，设置为pom表示这是一个Maven聚合POM
-				scope: 依赖作用域，设置为import表示将此POM中的依赖管理配置导入到当前项目中
-			-->
 			<dependency>
+				<!-- Spring Cloud依赖管理的组织标识 -->
 				<groupId>org.springframework.cloud</groupId>
+				<!-- Spring Cloud依赖管理的项目标识，用于统一管理Spring Cloud组件版本 -->
 				<artifactId>spring-cloud-dependencies</artifactId>
+				<!-- 指定使用的Spring Cloud版本，Dalston.RELEASE为正式发布版本 -->
 				<version>Dalston.RELEASE</version>
+				<!-- 依赖类型设置为pom，表示这是一个Maven聚合POM文件 -->
 				<type>pom</type>
+				<!-- 作用域设置为import，将此POM中的依赖管理配置导入到当前项目中 -->
 				<scope>import</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -68,9 +74,12 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+			<!-- Spring Boot Maven插件的组织标识 -->
+			<groupId>org.springframework.boot</groupId>
+			<!-- Spring Boot Maven插件的项目标识，用于打包Spring Boot应用 -->
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>
+
 		</plugins>
 	</build>
 

@@ -1,40 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Maven项目对象模型(POM)配置文件
+    用于定义zuul-service项目的构建配置、依赖管理和插件配置
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- POM模型版本，固定值4.0.0 -->
 	<modelVersion>4.0.0</modelVersion>
 
+	<!-- 项目组ID，用于唯一标识一组相关的项目 -->
 	<groupId>com.techprimers.cloud</groupId>
+
+	<!-- 项目构件ID，用于唯一标识该项目 -->
 	<artifactId>zuul-service</artifactId>
+
+	<!-- 项目版本号，0.0.1-SNAPSHOT表示开发中的快照版本 -->
 	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- 项目打包方式，jar表示打包成可执行JAR文件 -->
 	<packaging>jar</packaging>
 
+	<!-- 项目显示名称 -->
 	<name>zuul-service</name>
+
+	<!-- 项目描述信息 -->
 	<description>Demo project for Spring Boot</description>
 
+	<!-- 父项目配置，继承Spring Boot的默认配置 -->
 	<parent>
+		<!-- 父项目组ID -->
 		<groupId>org.springframework.boot</groupId>
+		<!-- 父项目构件ID -->
 		<artifactId>spring-boot-starter-parent</artifactId>
+		<!-- 父项目版本号 -->
 		<version>1.5.3.RELEASE</version>
+		<!-- 相对路径，空值表示Maven会自动从仓库查找 -->
 		<relativePath/>
 	</parent>
 
+	<!-- 项目属性配置 -->
 	<properties>
+		<!-- 源代码编码格式 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 报告输出编码格式 -->
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Java版本要求 -->
 		<java.version>1.8</java.version>
 	</properties>
 
+	<!-- 项目依赖配置 -->
 	<dependencies>
+		<!-- Eureka客户端依赖，用于服务注册与发现 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
+
+		<!-- Zuul网关依赖，用于API网关功能 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>
 			<version>1.4.7.RELEASE</version>
 		</dependency>
 
+		<!-- Spring Boot测试依赖，仅在测试时使用 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -42,6 +72,7 @@
 		</dependency>
 	</dependencies>
 
+	<!-- 依赖管理配置，用于统一管理Spring Cloud相关依赖的版本 -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -51,17 +82,19 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
+	<!-- 构建配置 -->
 	<build>
 		<plugins>
+			<!-- Spring Boot Maven插件，用于打包可执行JAR文件 -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
