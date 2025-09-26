@@ -51,12 +51,10 @@ hystrix:
             # 设置Hystrix命令执行的超时时间，单位为毫秒
             timeoutInMilliseconds: 60000
 
-
-# --- 添加以下配置 ---
+# 添加以下 Spring Boot 1.5.x 的正确配置
+# 为了安全和规范，建议为所有管理端点设置一个统一的前缀，类似新版的 /actuator
+# 这里我们设置为 /manage
 management:
-  endpoints:
-    web:
-      exposure:
-        # 使用 '*' 暴露所有 Actuator 端点，便于学习和调试
-        # 在生产环境中，建议只暴露必要的端点，如 'health,info,routes'
-        include: '*'
+  context-path: /manage
+  security:
+    enabled: false
